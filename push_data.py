@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import pymongo
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -10,6 +11,9 @@ print(MONGO_DB_URL)
 
 import certifi
 ca=certifi.where()
+
+client = pymongo.MongoClient(MONGO_DB_URL,tlsCAFile=ca)
+print(client.list_database_names())
 
 import pandas as pd
 import numpy as np
@@ -50,8 +54,8 @@ class NetworkDataExtract():
         
 if __name__=='__main__':
     FILE_PATH="NetworkData\phisingData.csv"
-    DATABASE=""
-    Collection=""
+    DATABASE="KirankumarDhanireddy"
+    Collection="NetworkData"
     networkobj=NetworkDataExtract()
     records=networkobj.csv_to_json_convertor(file_path=FILE_PATH)
     print(records)
