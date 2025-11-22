@@ -2,7 +2,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import certifi
 
-uri = "mongodb+srv://kirurockingvkdr_db_user:admin123@cluster0.uqqtho9.mongodb.net/?appName=Cluster0"
+uri = ""
 
 # Create a new client and connect to the server
 client = MongoClient(uri, tls=True, tlsAllowInvalidCertificates=False, tlsCAFile=certifi.where(), retryWrites=True, server_api=ServerApi('1'))
